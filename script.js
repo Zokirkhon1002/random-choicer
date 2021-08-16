@@ -5,12 +5,12 @@ textarea.focus();
 
 
 //////////////////
-textarea.addEventListener('keypress', (event)=>{
-    createOutputs(event.target.value);
+textarea.addEventListener('keyup', (e)=>{
+    createOutputs(e.target.value);
 
-    if(event.key === 'Enter'){
+    if(e.key === 'Enter'){
         setTimeout(() => {
-            event.target.value = '';
+            e.target.value = '';
         }, 10);
 
         randomSelect();
@@ -19,7 +19,7 @@ textarea.addEventListener('keypress', (event)=>{
 //////////////////////////////////////////
 function createOutputs(input){
     let natijalar = input.split(",")
-    .filter(tag => tag.trim() !== " ")
+    .filter(tag => tag.trim() !== "")
     .map(tag => tag.trim());
     
     output.innerHTML = "";
